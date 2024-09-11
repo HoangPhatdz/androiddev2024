@@ -12,5 +12,5 @@ Student Info
 
 * Name: Nguyen Hoang Phat
 * ID: 22BI13356
-* Group ID: *Your Group ID here*
-* Project Name: *Your Project Name here*
+* Group ID: 5
+* Project Name: Instagram Client
