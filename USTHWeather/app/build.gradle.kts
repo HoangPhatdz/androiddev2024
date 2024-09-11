@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "vn.edu.usth.weather"
+    namespace = "vn.edu.usth.usthweather"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "vn.edu.usth.weather"
+        applicationId = "vn.edu.usth.usthweather"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -60,7 +60,7 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.appcompat)
-    implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.viewpager2)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
