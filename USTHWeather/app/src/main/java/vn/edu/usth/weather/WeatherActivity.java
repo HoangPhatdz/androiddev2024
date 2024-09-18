@@ -1,41 +1,47 @@
-package vn.edu.usth.usthweather;
+package vn.edu.usth.weather;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager2.widget.ViewPager2;
+
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 
 public class WeatherActivity extends AppCompatActivity {
     private static final String TAG = "Weather";
-    @SuppressLint("MissingInflatedId")
+
+    private String[] cities = {"Hanoi", "Paris", "Toulouse"};
+    private int[] weatherIcons = {R.drawable.cloudy, R.drawable.partly_cloudy, R.drawable.cloudy};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_weather);
-//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-//            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-//            return insets;
-//        });
         Log.i(TAG, "Create");
 
-        HomeFragmentPagerAdapter adapter = new HomeFragmentPagerAdapter(this);
-        ViewPager2 viewPager2 = findViewById(R.id.view_pager);
-        viewPager2.setOffscreenPageLimit(3);
-        viewPager2.setAdapter(adapter);
 
-//        ForecastFragment firstFragment = new ForecastFragment();
-//
-//        getSupportFragmentManager().beginTransaction().replace(R.id.main, firstFragment).commit();
+        TabLayout tabLayout = findViewById(R.id.tabLayout);
+        ViewPager2 viewPager = findViewById(R.id.viewPager);
+        WeatherPagerAdapter adapter = new WeatherPagerAdapter(this);
+        viewPager.setAdapter(adapter);
+
+        new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> {
+            switch (position) {
+                case 0:
+                    tab.setText("Hanoi");
+                    break;
+                case 1:
+                    tab.setText("Paris");
+                    break;
+                case 2:
+                    tab.setText("Toulouse");
+                    break;
+            }
+        }).attach();
     }
 
     @Override
