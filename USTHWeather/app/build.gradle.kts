@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-    namespace = "vn.edu.usth.weather"
+    namespace = "vn.edu.usth.usthweather"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "vn.edu.usth.weather"
-        minSdk = 31
+        applicationId = "vn.edu.usth.usthweather"
+        minSdk = 24
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -50,6 +50,7 @@ android {
 }
 
 dependencies {
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -60,7 +61,6 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.viewpager2)
-    implementation(libs.androidx.constraintlayout)
     implementation(libs.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
